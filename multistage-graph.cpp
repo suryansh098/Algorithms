@@ -20,7 +20,7 @@ int shortestPath(vector<vector<int>> &graph, int n) {
     for(int i=n-2; i>=0; i--) {
         // find min distance from that vertex to dest
         // and store it in dp at index vertex
-        for(int j=i; j<n; j++) {
+        for(int j=i+1; j<n; j++) {
             // check if edge exists
             if(graph[i][j] != INF) {
                 // find min distance
@@ -37,14 +37,14 @@ int main()
 {
     // Graph in the form of an adjacency matrix
     vector<vector<int>> graph =
-      {{INF, 1, 2, 5, INF, INF, INF, INF},
-       {INF, INF, INF, INF, 4, 11, INF, INF},
-       {INF, INF, INF, INF, 9, 5, 16, INF},
-       {INF, INF, INF, INF, INF, INF, 2, INF},
-       {INF, INF, INF, INF, INF, INF, INF, 18},
-       {INF, INF, INF, INF, INF, INF, INF, 13},
-       {INF, INF, INF, INF, INF, INF, INF, 2},
-      {INF, INF, INF, INF, INF, INF, INF, INF}};
+      {{0, 1, 2, 5, INF, INF, INF, INF},
+       {INF, 0, INF, INF, 4, 11, INF, INF},
+       {INF, INF, 0, INF, 9, 5, 16, INF},
+       {INF, INF, INF, 0, INF, INF, 2, INF},
+       {INF, INF, INF, INF, 0, INF, INF, 18},
+       {INF, INF, INF, INF, INF, 0, INF, 13},
+       {INF, INF, INF, INF, INF, INF, 0, 2},
+      {INF, INF, INF, INF, INF, INF, INF, 0}};
 
     cout << shortestPath(graph, graph.size());
     return 0;
